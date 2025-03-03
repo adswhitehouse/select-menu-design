@@ -69,23 +69,17 @@ body {
 /* Select Box */
 .select {
   background-color: rgba(255, 255, 255, 0.75);
-  align-self: flex-start;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  position: relative;
   cursor: pointer;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .arrow {
-  position: absolute;
-  width: 1rem;
-  top: 0;
-  bottom: 0;
-  height: fit-content;
-  margin-block: auto;
-  right: 1rem;
-  transform: rotate(0deg);
+  height: 1rem;
   transition: transform 0.25s;
 }
 
@@ -103,21 +97,20 @@ body {
   transition: height 0.25s;
 }
 
-.options p {
+.options li {
   display: flex;
-  align-items: center;
+  gap: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.25s;
 }
 
-.options p:hover {
+.options li:hover {
   background-color: rgba(200, 0, 0, 0.25);
 }
 
 .options img {
   width: 1.5rem;
-  margin-right: 1rem;
 }
 
 /* Options Animation */
