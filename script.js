@@ -6,25 +6,29 @@ let optionList = document.querySelectorAll(".jsOption");
 let chosenOption = document.querySelector(".jsChosenOption");
 let selectContainer = document.querySelector(".jsSelectContainer");
 
-// Toggle arrow and option animation when clicking select box
-select.addEventListener("click", () => {
-  arrow.classList.toggle("rotate");
-  options.classList.toggle("dropdown");
-});
+// Toggle animations when clicking select
+select.addEventListener("click", toggleAnimations);
 
-// Choose option to remove animations and update select box text
+// Update select content with option and toggle animations
 optionList.forEach((option) => {
   option.addEventListener("click", () => {
     chosenOption.textContent = option.textContent;
-    arrow.classList.remove("rotate");
-    options.classList.remove("dropdown");
+    toggleAnimations();
   });
 });
 
-// If area outside of select/options is clicked... hide dropdown
+// If area outside of select/options is clicked, toggle animations
 document.body.addEventListener("click", (e) => {
-  if (!selectContainer.contains(e.target)) {
-    arrow.classList.remove("rotate");
-    options.classList.remove("dropdown");
+  if (
+    !selectContainer.contains(e.target) &&
+    arrow.classList.contains("rotate")
+  ) {
+    toggleAnimations();
   }
 });
+
+// Toggles animations
+function toggleAnimations() {
+  arrow.classList.toggle("rotate");
+  options.classList.toggle("dropdown");
+}
